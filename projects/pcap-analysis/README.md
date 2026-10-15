@@ -75,43 +75,79 @@ For this personal lab project, I worked through a packet-analysis exercise from 
 
 ## Analysis steps
 
-### What is the IP address of the infected Windows client?
+### 1. What is the IP address of the infected Windows client?
 
-I started by looking at the conversations in the PCAP and checking which ones communicated outside of the main segment range.
+**Approach:** I started by looking at the conversations in the PCAP and checking which ones communicated outside of the main segment range.
+
+**Tool used:** Statistics → Conversations
 
 ![Host IP, part 1](host_ip_part_1.png)
 
 ![Host IP, part 2](Host_ip_part_2.png)
 
-172.16.8.49 had communication with 9 external IPs.
+**Finding:** `172.16.8.49` had communication with 9 external IPs.
 
-### What is the MAC address of the infected Windows client?
+---
 
-I clicked into a packet from the host and read the MAC address from the Ethernet II layer: `00:12:f0:28:d4:34`.
+### 2. What is the MAC address of the infected Windows client?
+
+**Approach:** I clicked into a packet from the host and read the MAC address from the Ethernet II layer.
+
+**Tool used:** Packet details pane → Ethernet II
 
 ![MAC address](MAC_address_screenshot.png)
 
-### What is the hostname of the infected Windows client?
+**Finding:** `00:12:f0:28:d4:34`
 
-The infected client is a Windows device, so hostnames show up in NetBIOS traffic. Using the infected client's IP, I used the `nbns` filter to find the hostname.
+---
+
+### 3. What is the hostname of the infected Windows client?
+
+**Approach:** The infected client is a Windows device, so hostnames show up in NetBIOS traffic. Using the infected client's IP, I filtered for NBNS to find the hostname.
+
+**Filter:**
+
+```
+nbns
+```
 
 ![Hostname in NBNS traffic](desktop_name_.png)
 
-### What is the user account name from the infected Windows client?
+**Finding:** `DESKTOP-5NLV63K`
 
-I created a filter for Kerberos traffic, `kerberos.CNameString`. This showed me the user account names, and I matched them to the infected host's IP.
+---
+
+### 4. What is the user account name from the infected Windows client?
+
+**Approach:** I created a filter for Kerberos traffic. This showed me the user account names, and I matched them to the infected host's IP.
+
+**Filter:**
+
+```
+kerberos.CNameString
+```
 
 ![User account name](username_screenshot.png)
 
-### What is the full name of the user from the user account?
+**Finding:** `rvance`
 
-Since I already had the last name from the account name, I created a case-sensitive search for the string "Vance":
+---
+
+### 5. What is the full name of the user from the user account?
+
+**Approach:** Since I already had the last name from the account name, I searched the SAMR traffic for the user's full-name field.
+
+**Filter:**
 
 ```
 samr.samr_UserInfo21.full_name == "Raymond Vance"
 ```
 
 ![Full name filter](full_name_filter.png)
+
+**Finding:** `Raymond Vance`
+
+---
 
 ## Troubleshooting
 
