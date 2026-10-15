@@ -1,19 +1,19 @@
 # Hi, I'm Jasmine 👋
 
-Early-career IT & cybersecurity professional | Charlotte, NC (Open to relocation)
-Working toward SOC Analyst and DFIR roles, building my foundation in IT.
+IT & Cybersecurity professional | Charlotte, NC (Open to relocation) | Working toward SOC Analyst and DFIR roles, building my foundation in IT.
 
-[LinkedIn](https://linkedin.com/in/YOUR-HANDLE) · [Email](mailto:YOUR-EMAIL) · [Resume](./resume.pdf)
+[LinkedIn](https://www.linkedin.com/in/jasmine-iheanachor-86b85a285/?isSelfProfile=true) · [Email](mailto:jiheanachor328@gmail.com) · [Resume](./resume.pdf)
 
 ---
 
 ## About me
-B.S. in Information Science, UNC Greensboro (2024). I learn by building and documenting: every project here includes the steps I took, the tools I used, the problems I hit, and what I learned.
+B.S. in Information Science, UNC Greensboro (2024). I learn by building and documenting: every project here includes the steps I took, the tools I used, the problems I encountered, and what I learned!
 
 ## Certifications & training
 | Item | Status |
 |---|---|
 | SANS Cyber Academy (SEC401) | In progress |
+| GIAC Foundational Cybersecurity Technologies (GFACT) | Earned: 7/30/26 |
 | GIAC Security Essentials (GSEC) | Studying, expected by: 10/25/26 |
 | WiCyS x SANS Security Training Scholarship CTF | Participated |
 
