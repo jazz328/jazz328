@@ -29,7 +29,9 @@ For this personal lab project, I worked through a packet-analysis exercise from 
 - **OS:** Linux 6.19.14+kali-amd64 (found by running `cat /etc/os-release`)
 - **Wireshark version:** 4.6.6
 
-![VM resources](80423153-a182-4fad-800d-c9cf7fe5cd0f.png)
+![VM resources](VM_resources.png)
+
+
 
 *VM resources*
 
